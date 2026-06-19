@@ -208,3 +208,53 @@
     height: auto;
   }
 }
+
+.work-description {
+  margin-top: 5px;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: #adacac;
+}
+
+.work-tech {
+  margin-top: 15px;
+}
+
+.work-tech h4 {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #eae5ec;
+}
+
+.work-tech p {
+  font-size: 13px;
+  color: #adacac;
+}
+
+.work-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accentColor);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid var(--accentColor);
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.project-link:hover {
+  background-color: var(--accentColor) !important;
+  color: var(--backgroundColor) !important;
+}

@@ -5,8 +5,8 @@ const Career = () => {
     <div className="career-section section-container">
       <div className="career-container">
         <h2>
-          My career <span>&</span>
-          <br /> experience
+          Education <span>&</span>
+          <br /> Qualifications
         </h2>
         <div className="career-info">
           <div className="career-timeline">
@@ -15,43 +15,25 @@ const Career = () => {
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>B.E, Electrical and Electronics</h4>
+                <h5>Dayananda Sagar College of Engineering, Bengaluru, India</h5>
               </div>
-              <h3>20XX</h3>
+              <h3>2023 - 2027</h3>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
+              Pursuing Bachelor of Engineering. Studying core engineering subjects while building strong technical skills in software engineering, modern web technologies, and systems design.
             </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>Pre-University, Science</h4>
+                <h5>Govt Higher Secondary School, Thally, India</h5>
               </div>
-              <h3>20XX</h3>
+              <h3>2021 - 2023</h3>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
-            </p>
-          </div>
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
-              </div>
-              <h3>NOW</h3>
-            </div>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
+              Completed Pre-University education focusing on Science (Physics, Chemistry, Mathematics, and Computer Science). Developed foundational skills in programming and problem solving.
             </p>
           </div>
         </div>
