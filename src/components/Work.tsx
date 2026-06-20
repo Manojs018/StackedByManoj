@@ -45,13 +45,10 @@ const projects = [
 const Work = () => {
   useGSAP(() => {
     const getTranslateX = () => {
-      const box = document.getElementsByClassName("work-box");
-      if (box.length === 0) return 0;
-      const rectLeft = document.querySelector(".work-container")?.getBoundingClientRect().left ?? 0;
-      const boxWidth = (box[0] as HTMLElement).offsetWidth;
-      const parentWidth = (box[0].parentElement as HTMLElement).offsetWidth;
-      const padding = parseInt(window.getComputedStyle(box[0]).padding) / 2 || 0;
-      return boxWidth * box.length - (rectLeft + parentWidth) + padding;
+      const workFlex = document.querySelector(".work-flex") as HTMLElement;
+      const workContainer = document.querySelector(".work-container") as HTMLElement;
+      if (!workFlex || !workContainer) return 0;
+      return workFlex.scrollWidth - workContainer.offsetWidth;
     };
 
     let timeline = gsap.timeline({
