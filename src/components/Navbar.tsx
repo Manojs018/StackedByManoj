@@ -8,37 +8,44 @@ import "./styles/Navbar.css";
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 export let smoother: ScrollSmoother;
 
-const Navbar = () => {
+export function setSmootherInstance(instance: ScrollSmoother) {
+  smoother = instance;
+}
+
+const Navbar = ({ smootherReady }: { smootherReady: boolean }) => {
   useEffect(() => {
-    smoother = ScrollSmoother.create({
-      wrapper: "#smooth-wrapper",
-      content: "#smooth-content",
-      smooth: 1.7,
-      speed: 1.7,
-      effects: true,
-      autoResize: true,
-      ignoreMobileResize: true,
-    });
+    if (!smootherReady || !smoother) return;
 
-    smoother.scrollTop(0);
-    smoother.paused(true);
-
-    let links = document.querySelectorAll(".header ul a");
+    const clickHandlers: Array<{ element: HTMLAnchorElement; handler: (e: Event) => void }> = [];
+    const links = document.querySelectorAll(".header ul a");
     links.forEach((elem) => {
-      let element = elem as HTMLAnchorElement;
-      element.addEventListener("click", (e) => {
+      const element = elem as HTMLAnchorElement;
+      const clickHandler = (e: Event) => {
         if (window.innerWidth > 1024) {
           e.preventDefault();
-          let elem = e.currentTarget as HTMLAnchorElement;
-          let section = elem.getAttribute("data-href");
-          smoother.scrollTo(section, true, "top top");
+          const section = element.getAttribute("data-href");
+          if (section) {
+            smoother.scrollTo(section, true, "top top");
+          }
         }
-      });
+      };
+      element.addEventListener("click", clickHandler);
+      clickHandlers.push({ element, handler: clickHandler });
     });
-    window.addEventListener("resize", () => {
+
+    const resizeHandler = () => {
       ScrollSmoother.refresh(true);
-    });
-  }, []);
+    };
+    window.addEventListener("resize", resizeHandler);
+
+    return () => {
+      clickHandlers.forEach(({ element, handler }) => {
+        element.removeEventListener("click", handler);
+      });
+      window.removeEventListener("resize", resizeHandler);
+    };
+  }, [smootherReady]);
+
   return (
     <>
       <div className="header">
